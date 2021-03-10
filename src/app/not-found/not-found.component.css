@@ -1,0 +1,9 @@
+.not-found-container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../../assets/images/404.jpg);
+  background-size: cover;
+  color: whitesmoke;
+  font-size: 13rem;
+  padding: 10% 40px 10% 40px;
+  line-height: 13rem;
+}
