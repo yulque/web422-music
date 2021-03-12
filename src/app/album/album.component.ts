@@ -7,9 +7,9 @@ import * as data from '../data/SearchResultsAlbum.json';
   styleUrls: ['./album.component.css']
 })
 export class AlbumComponent implements OnInit {
-  album : any;
+  data : any;
+  album : any = data;
   constructor() { 
-    this.album = data;
   }
 
   ngOnInit(): void {
