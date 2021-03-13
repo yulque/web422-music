@@ -1,6 +1,17 @@
-h1 {
+h1,
+h5 {
   margin-left: 2rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
-a {
-  text-decoration: inherit;
+.header-wrapper {
+  border-radius: 0;
+}
+.header {
+  color: white;
+  font-size: 4rem;
+  line-height: 4rem;
+  padding-top: 190px;
+  display: flex;
+  justify-content: center;
 }

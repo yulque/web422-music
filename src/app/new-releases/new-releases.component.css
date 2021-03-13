@@ -2,14 +2,22 @@
   max-width: 2000px;
   margin: auto;
 }
-.new-release-card {
-}
+
 mat-card {
   margin: 2rem;
   /* object-fit: cover; this makes the image in src fit to the size specified below */
   /* Here you can use wherever you want to specify the width and also the height of the <img>*/
 }
-mat-card a {
-  text-decoration: inherit;
-  color: #a076c6;
+mat-card-title {
+  margin-bottom: 1rem;
+}
+
+h1,
+h4,
+h5 {
+  margin-left: 2rem;
+  margin-bottom: 0;
+}
+h1 {
+  margin-top: 2rem;
 }

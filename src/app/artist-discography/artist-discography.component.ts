@@ -9,15 +9,15 @@ import * as artistData from '../data/SearchResultsArtist.json';
 })
 export class ArtistDiscographyComponent implements OnInit {
 
-  albums;
-  artist;
+  albums: any;
+  artist: any;
 
   constructor() {
-    this.albums = albumData.albums.items;
-    this.artist = artistData;
    }
 
   ngOnInit(): void {
+    this.albums = albumData.albums.items;
+    this.artist = (artistData as any).default;
   }
 
 }

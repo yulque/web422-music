@@ -1,5 +1,6 @@
 <div>
-<h3>new-releases</h3>
+<h1>New Releases</h1>
+<h4>You can click on album cover or artist for more information</h4>
 
 <div class="new-release-card-wrapper" fxLayout="row wrap" >
     <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let item of releases" >
@@ -11,13 +12,14 @@
         </a>
         </mat-card-title>
         <mat-card-subtitle>
-          <span *ngFor="let artist of item.artists"> <a href="/artist">{{artist.name}} </a></span>
-        </mat-card-subtitle>
+            <mat-chip-list aria-label="Artist selection">
+                <mat-chip *ngFor="let artist of item.artists"><a href="/artist">{{artist.name}} </a></mat-chip>
+            </mat-chip-list>
+           </mat-card-subtitle>
    
         <mat-card-contents>
-            Release Date: {{item.release_date}} <br />
-            Tracks: {{item.total_tracks}} <br />
-            Artist: 
+            <strong>Release Date:</strong> {{item.release_date}} <br />
+            <strong>Tracks:</strong> {{item.total_tracks}} <br />
         </mat-card-contents>
         <!-- <mat-card-footer>{{item.release_date}}</mat-card-footer> -->
     </mat-card>

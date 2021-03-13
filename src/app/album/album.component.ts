@@ -7,12 +7,12 @@ import * as data from '../data/SearchResultsAlbum.json';
   styleUrls: ['./album.component.css']
 })
 export class AlbumComponent implements OnInit {
-  data : any;
-  album : any = data;
-  constructor() { 
-  }
+  album : any;
+
+  constructor() {}
 
   ngOnInit(): void {
+    this.album = (data as any).default;
   }
 
 }

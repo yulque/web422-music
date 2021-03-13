@@ -1,1 +1,25 @@
-<p>about works!</p>
+<mat-card>
+    <mat-card-content >
+        <div class="about-image"><img src="/assets/images/about.gif" alt="typing cat"></div>
+        <h1>👩🏻‍💻 Software Developer</h1>
+        <p> Hi, I'm a software developer who goes to Seneca College and about to graduate soon. I enjoy working in a fast-paced environment just like the cat!
+        </p>
+        <h1>✨ GOOD UI/UX</h1>
+        <p>is something I enjoy the most on web. With my anthropology background, I see building software is more about people than anything else.
+            I like observing and understanding how one affects another, like certain programming design affects human behavior.
+            Is it clickable? Is this button better on right side or left side? I will be never bored on those questions. 
+            How we make website easier to understand and intuitive to use will be always my top curiosity.
+        </p>
+        <h1>💾 Data</h1>
+        <p>is a secret cave for me. Between the most boring looking rows and columns, there are lots to discover and be shared. 
+            I love working with interesting APIs and public data by making it understandable easily and beautifully.
+
+        </p>
+        <h1>📱 Contact</h1>
+        <p>
+         Send me a mail to <button (click)="clickMail()" cdkCopyToClipboard="yuriyoonkim@gmail.com"> yuriyoonkim@gmail.com </button> and let's chat more!
+        <span *ngIf="isShown" class="copied"> Copied!</span>
+        </p>
+        
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,25 @@
+h1 {
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+p {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  margin-left: 2.1rem;
+  margin-right: 1rem;
+}
+button {
+  border: none;
+  background-color: antiquewhite;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.copied {
+  color: royalblue;
+}
+.about-image {
+  text-align: center;
+}
+img {
+  height: 250px;
+}

@@ -8,13 +8,12 @@ import * as data from '../data/NewReleasesAlbums.json';
 })
 export class NewReleasesComponent implements OnInit {
 
-  releases : Array<Object> = data.albums.items;;
+  releases : Array<Object>;
 
-  constructor() { 
-  }
+  constructor() {}
 
-  getReleases(){ return this.releases.map(i=> JSON.stringify(i))};
   ngOnInit(): void {
+    this.releases = data.albums.items;
    
   }
 

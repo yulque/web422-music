@@ -23,7 +23,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NewReleasesComponent } from './new-releases/new-releases.component';
 import { AlbumComponent } from './album/album.component';
 import { ArtistDiscographyComponent } from './artist-discography/artist-discography.component';
-
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,8 @@ import { ArtistDiscographyComponent } from './artist-discography/artist-discogra
     MatInputModule,
     MatCardModule,
     MatChipsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ClipboardModule
 
   ],
   providers: [],

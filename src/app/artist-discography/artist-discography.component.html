@@ -1,15 +1,22 @@
-<mat-card
-    [style.background]="'url('+ artist.default.images[0].url +') no-repeat center center'"
+
+<mat-card class="header-wrapper"
+    [style.background]="'linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),url('+ artist.images[0].url +') no-repeat center center'"
     [style.background-size]="'cover'" [style.height]="'450px'">
+<mat-card-header class="header">{{artist.name}}</mat-card-header>
 </mat-card>
 <br /><br />
-<h1>{{artist.default.name}}</h1>
+<h1>Full Discography</h1>
+<h5>Click the album cover for more information</h5>
 
 <div fxLayout="row wrap" fxLayout.xs="column">
 
     <!-- Single "Responsive" Card-->
     <div fxFlex [style.margin]="'20px'"  *ngFor="let album of albums">
         <mat-card [style.min-width]="'200px'">
+            <a href="/album">
             <mat-card-header>
                 <mat-card-title>{{album.name}}</mat-card-title>
                 <mat-card-subtitle>{{album.album_type}}</mat-card-subtitle>
@@ -19,6 +26,7 @@
                 src="{{album.images[0].url}}" alt="album art">
             <strong>Release Date: </strong>{{album.release_date}}<br />
             <strong>Tracks: </strong>{{album.total_tracks}}
+            </a>
         </mat-card>
     </div>
     <!-- -->

@@ -15,7 +15,10 @@ body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
   font-size: 14px;
 }
-
+a {
+  text-decoration: none;
+  color: black;
+}
 .mat-list-item,
 .mat-menu-item {
   font-size: 14px !important;

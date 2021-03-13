@@ -1,19 +1,20 @@
 <mat-card>
     <mat-card-content fxLayout="row wrap" fxLayout.xs="column">
-        <div fxflex><img src={{album.default.images[1].url}} alt="album cover" [style.margin]="'10px'" [style.max-width]="'90%'" /></div>
+        <div fxflex><img src={{album.images[1].url}} alt="album cover" [style.margin]="'10px'" [style.max-width]="'90%'" /></div>
         <div fxFlex>
             <div [style.min-width]="'300px'" [style.margin]="'10px'">
-                <strong>Record Label: </strong> {{album.default.label }}<br />
-                <strong>Release Date: </strong> {{album.default.release_date }}<br /><br />
-                <strong>Tracks: </strong>{{album.default.total_tracks}}<br />
-                <strong>Popularity: </strong>{{album.default.popularity}}<br /><br />
+                <h1>{{album.name}}</h1>
+                <strong>Record Label: </strong> {{album.label}}<br />
+                <strong>Release Date: </strong> {{album.release_date}}<br /><br />
+                <strong>Tracks: </strong>{{album.total_tracks}}<br />
+                <strong>Popularity: </strong>{{album.popularity}}<br /><br />
 
                 <mat-chip-list aria-label="Artist selection">
-                    <mat-chip *ngFor="let artist of album.default.tracks.items[0].artists"><a href="/artist">{{artist.name}}</a></mat-chip>
+                    <mat-chip *ngFor="let artist of album.tracks.items[0].artists"><a href="/artist">{{artist.name}}</a></mat-chip>
                 </mat-chip-list>
                 <br />
 
-                <div *ngFor="let copyright of album.default.copyrights">{{copyright.text}}</div>
+                <div *ngFor="let copyright of album.copyrights">{{copyright.text}}</div>
             </div>
         </div>
     </mat-card-content>
@@ -23,7 +24,7 @@
 
 <mat-list>
     <!-- Single "Responsive" Material List Item-->
-    <mat-list-item *ngFor="let track of album.default.tracks.items">
+    <mat-list-item *ngFor="let track of album.tracks.items">
         <mat-icon mat-list-icon>queue_music</mat-icon>
         <div mat-line>
             <mat-card >
