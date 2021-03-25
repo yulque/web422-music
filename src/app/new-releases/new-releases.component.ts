@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import * as data from '../data/NewReleasesAlbums.json';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { MusicDataService } from '../music-data.service';
+
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-new-releases',
@@ -8,13 +11,27 @@ import * as data from '../data/NewReleasesAlbums.json';
 })
 export class NewReleasesComponent implements OnInit {
 
-  releases : Array<Object>;
+  releases : any;
+  paramSubscription: Subscription;
 
-  constructor() {}
+  constructor(
+    private route: ActivatedRoute,
+    private dataService: MusicDataService
+    ) {}
 
   ngOnInit(): void {
-    this.releases = data.albums.items;
+    this.paramSubscription = this.route.params.subscribe(
+      (params: Params) =>
+      this.dataService.getNewReleases().subscribe(
+        newRelease => {this.releases = newRelease.albums.items;
+        console.log(newRelease);}
+      )
+    );
    
+  }
+
+  ngOnDestroy(): void {
+    this.paramSubscription.unsubscribe();
   }
 
 }

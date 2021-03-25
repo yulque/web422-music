@@ -5,15 +5,13 @@
 <div class="new-release-card-wrapper" fxLayout="row wrap" >
     <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let item of releases" >
     <mat-card [ngClass]="new-release-card">
-        <mat-card-title >
-            <a href="/album">
+        <mat-card-title routerLink="/album/{{item.id}}">
             <img mat-card-image src="{{item.images[0].url}}" />
             {{item.name}}
-        </a>
         </mat-card-title>
         <mat-card-subtitle>
             <mat-chip-list aria-label="Artist selection">
-                <mat-chip *ngFor="let artist of item.artists"><a href="/artist">{{artist.name}} </a></mat-chip>
+                <mat-chip *ngFor="let artist of item.artists" routerLink="/artist/{{artist.id}}">{{artist.name}}</mat-chip>
             </mat-chip-list>
            </mat-card-subtitle>
    

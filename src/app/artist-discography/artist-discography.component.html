@@ -14,9 +14,8 @@
 <div fxLayout="row wrap" fxLayout.xs="column">
 
     <!-- Single "Responsive" Card-->
-    <div fxFlex [style.margin]="'20px'"  *ngFor="let album of albums">
+    <div fxFlex [style.margin]="'20px'"  *ngFor="let album of albums" [routerLink]="['/album', album.id]">
         <mat-card [style.min-width]="'200px'">
-            <a href="/album">
             <mat-card-header>
                 <mat-card-title>{{album.name}}</mat-card-title>
                 <mat-card-subtitle>{{album.album_type}}</mat-card-subtitle>
@@ -26,7 +25,6 @@
                 src="{{album.images[0].url}}" alt="album art">
             <strong>Release Date: </strong>{{album.release_date}}<br />
             <strong>Tracks: </strong>{{album.total_tracks}}
-            </a>
         </mat-card>
     </div>
     <!-- -->
