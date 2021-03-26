@@ -27,6 +27,8 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SearchResultComponent } from './search-result/search-result.component';
+import { FavouritesComponent } from './favourites/favourites.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     NotFoundComponent,
     NewReleasesComponent,
     AlbumComponent,
-    ArtistDiscographyComponent
+    ArtistDiscographyComponent,
+    SearchResultComponent,
+    FavouritesComponent
   ],
   imports: [
     BrowserModule,

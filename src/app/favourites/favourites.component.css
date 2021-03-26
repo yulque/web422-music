@@ -1,0 +1,11 @@
+h1 {
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+p {
+    margin-left: 2rem;
+}
+.empty {
+    color : #3f51b5;
+    font-size: large;
+}

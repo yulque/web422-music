@@ -23,8 +23,7 @@ export class NewReleasesComponent implements OnInit {
     this.paramSubscription = this.route.params.subscribe(
       (params: Params) =>
       this.dataService.getNewReleases().subscribe(
-        newRelease => {this.releases = newRelease.albums.items;
-        console.log(newRelease);}
+        newRelease => this.releases = newRelease.albums.items
       )
     );
    
