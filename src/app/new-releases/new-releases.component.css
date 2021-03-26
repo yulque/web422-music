@@ -2,7 +2,6 @@
   max-width: 2000px;
   margin: auto;
 }
-
 mat-card {
   margin: 2rem;
   /* object-fit: cover; this makes the image in src fit to the size specified below */
@@ -11,7 +10,6 @@ mat-card {
 mat-card-title {
   margin-bottom: 1rem;
 }
-
 h1,
 h4,
 h5 {

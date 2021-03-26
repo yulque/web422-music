@@ -24,21 +24,12 @@ export class ArtistDiscographyComponent implements OnInit {
   ngOnInit(): void {
     this.paramSubscription = this.route.params.subscribe(
       (params: Params) =>{
-        console.log('params: ', params);
         this.dataService.getAlbumsByArtistId(params.id).subscribe(
-          albums => {
-            console.log('albums info:', albums);
-          const set = _.uniqBy(albums.items,"name");
-          console.log(set);
-          this.albums = set;
-      }
-      )
+          albums => this.albums = _.uniqBy(albums.items,"name")
+      );
          this.dataService.getArtistById(params.id).subscribe(
-          artist => {
-          console.log('artist info:', artist);
-          this.artist = artist;
-      }
-      )}
+          artist => this.artist = artist
+      );}
     );
   }
 

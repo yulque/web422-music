@@ -23,10 +23,7 @@ export class AlbumComponent implements OnInit {
     this.paramSubscription = this.route.params.subscribe(
       (params:Params) => 
         this.dataService.getAlbumById(params.id).subscribe(
-          album => {
-            console.log('album',album.tracks.items);
-            this.album = album;
-          }
+          album => this.album = album
         )
     );
   }

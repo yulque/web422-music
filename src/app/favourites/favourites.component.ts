@@ -14,17 +14,18 @@ export class FavouritesComponent implements OnInit {
 
   constructor(
     private dataService: MusicDataService,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.subscription = this.dataService.getFavourites().subscribe( 
-      data => {
-        this.favourites = data.tracks;
-        console.log('favourites data', data.tracks);
-      }
+      data => this.favourites = data.tracks
       );
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+  
   iconClicked(id): void {
     this.dataService.removeFromFavourites(id);
   }

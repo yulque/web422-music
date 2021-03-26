@@ -26,7 +26,6 @@ export class NewReleasesComponent implements OnInit {
         newRelease => this.releases = newRelease.albums.items
       )
     );
-   
   }
 
   ngOnDestroy(): void {

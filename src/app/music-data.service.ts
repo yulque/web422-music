@@ -46,7 +46,7 @@ export class MusicDataService {
 
   addToFavourites(id): Boolean{
     this.favouritesList.push(id);
-    console.log(this.favouritesList);
+    console.log('favourites list: ',this.favouritesList);
     return (id && this.favouritesList.length<50)? true:false;
   }
 

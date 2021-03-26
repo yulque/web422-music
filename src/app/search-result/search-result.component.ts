@@ -21,7 +21,6 @@ export class SearchResultComponent implements OnInit {
   ngOnInit(): void {
     this.paramSubscription = this.route.queryParams.subscribe(
       (params: Params) => {
-        // console.log('params', params.q);
         this.searchString = params.q;
         this.dataService.searchArtists(this.searchString).subscribe(
         data => this.results = data.artists.items.filter(item => item.images.length>0)
