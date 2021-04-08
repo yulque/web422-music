@@ -29,7 +29,13 @@ import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { FavouritesComponent } from './favourites/favourites.component';
+import { EmployeeComponent } from './employee/employee.component';
 
+// jwt
+import { JwtModule } from 'auto0/angular-jwt';
+import { environment } from '../environments/environment';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +46,10 @@ import { FavouritesComponent } from './favourites/favourites.component';
     AlbumComponent,
     ArtistDiscographyComponent,
     SearchResultComponent,
-    FavouritesComponent
+    FavouritesComponent,
+    EmployeeComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +70,13 @@ import { FavouritesComponent } from './favourites/favourites.component';
     ClipboardModule,
     HttpClientModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => localStorage.getItem('token'),
+        allowedDomains: [ new URL(environment.apiUrl).host ]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -29,7 +29,4 @@ export class AppComponent {
     this.searchString = '';
    
   }
-  ngOnInit(): void {
-    
-  }
 }

@@ -7,8 +7,10 @@ import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { FavouritesComponent } from './favourites/favourites.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
+  { path: 'register', component: RegisterComponent},
   { path: 'newReleases', component: NewReleasesComponent},
   { path: 'artist/:id', component: ArtistDiscographyComponent},
   { path: 'album/:id', component: AlbumComponent},
