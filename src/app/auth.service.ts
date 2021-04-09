@@ -14,7 +14,9 @@ import {RegisterUser} from './RegisterUser';
   providedIn: 'root'
 })
 export class AuthService {
-  constructor( private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+    ) { }
 
   getToken(): string {
     return localStorage.getItem('access_token');
@@ -44,6 +46,7 @@ export class AuthService {
   }
 
   register(registerUser: RegisterUser): Observable<any> {
+    console.log('inside auth - register function');
     return this.http.post<any>(`${environment.userAPIBase}/register`, registerUser);
   }
 }

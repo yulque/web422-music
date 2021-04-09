@@ -33,9 +33,15 @@ export class AlbumComponent implements OnInit {
   }
 
   addToFavourites(trackId): void {
-    if(this.dataService.addToFavourites(trackId))
+    this.dataService.addToFavourites(trackId)
+    .subscribe(next => {
+      console.log('what is returned from add to favourites function', next);
       this.snackbar.open("Adding to Favourites...", "Done", { duration: 1500 });
-    
+    }, err => {
+      this.snackbar.open("Unable to add song to Favourites");
+    })
+    // if(this.dataService.addToFavourites(trackId))
+    //   this.snackbar.open("Adding to Favourites...", "Done", { duration: 1500 });
   }
 
 }

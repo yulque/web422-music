@@ -1,13 +1,16 @@
 h1 {
-    margin-left: 2rem;
-    margin-top: 2rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
 }
 p {
-    margin-left: 2rem;
+  margin-left: 2rem;
 }
 a {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 .empty {
-    color : red;
+  color: red;
+}
+.clikable {
+  cursor: pointer;
 }

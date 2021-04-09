@@ -24,18 +24,17 @@ import { NewReleasesComponent } from './new-releases/new-releases.component';
 import { AlbumComponent } from './album/album.component';
 import { ArtistDiscographyComponent } from './artist-discography/artist-discography.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { FavouritesComponent } from './favourites/favourites.component';
-import { EmployeeComponent } from './employee/employee.component';
 
 // jwt
-import { JwtModule } from 'auto0/angular-jwt';
-import { environment } from '../environments/environment';
+
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { InterceptTokenService } from './intercept-token.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +46,6 @@ import { LoginComponent } from './login/login.component';
     ArtistDiscographyComponent,
     SearchResultComponent,
     FavouritesComponent,
-    EmployeeComponent,
     RegisterComponent,
     LoginComponent
   ],
@@ -70,15 +68,13 @@ import { LoginComponent } from './login/login.component';
     ClipboardModule,
     HttpClientModule,
     FormsModule,
-    MatSnackBarModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: () => localStorage.getItem('token'),
-        allowedDomains: [ new URL(environment.apiUrl).host ]
-      }
-    })
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptTokenService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

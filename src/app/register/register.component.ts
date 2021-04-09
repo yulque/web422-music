@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   loading: boolean = false;
 
   constructor(
-    private service: AuthService ,
+    private auth: AuthService ,
     private router: Router
   ) { }
 
@@ -26,22 +26,27 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(f: NgForm): void {
-    if(!(this.registerUser.userName === "") && this.registerUser.password === this.registerUser.password2 ){
-      this.loading = true;
-      this.service.register(this.registerUser)
-      .subscribe( succ => {
-        this.success = true;
-        this.warning = null;
-        this.loading = false;
-        }, err => {
-          this.success = false;
-          this.warning = err.error.message;
-          this.loading = false;
-        })
+    console.log({'registerUser': this.registerUser, 'warning': this.warning});
+    if(this.registerUser.userName === "" || this.registerUser.password !== this.registerUser.password2){
+      console.log('condition fail at register');
+      return;
     }
-  
-    this.router.navigate(['/login']);
+    // valid info
+    console.log('valid info');
 
+    this.loading = true;
+    this.auth.register(this.registerUser)
+    .subscribe( successful => {
+      console.log('success of subscribe - register', successful);
+      this.success = true;
+      this.warning = null;
+      this.loading = false;
+      }, err => {
+        this.success = false;
+        this.warning = err.error.message;
+        this.loading = false;
+      })
+  
   }
 
 }
