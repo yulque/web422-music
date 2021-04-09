@@ -112,7 +112,11 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/_redirects",
+              {
+                "glob": "_redirects",
+                "input": "src",
+                "output": "/"
+              },
               "src/assets"
             ],
             "styles": [
