@@ -1,31 +1,52 @@
-<mat-card>
-    <mat-card-content>
-      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-        <h2>Log In</h2>
-        <mat-error *ngIf="warning"> {{warning}} </mat-error><br />
-        <mat-form-field class="full-width-input">
-          <input matInput placeholder="User Name" name="username" [(ngModel)]="user.userName" required autofocus>
-          <mat-error>Please provide a valid user name</mat-error>
-        </mat-form-field><br />
-        <mat-form-field class="full-width-input">
-          <input matInput type="password" placeholder="Password" name="password" password="password" [(ngModel)]="user.password" required>
-          <mat-error>Please provide a valid password</mat-error>
-        </mat-form-field><br />
-        <!-- login button -->
-        <button mat-raised-button [ngSwitch]="loading" [disabled]="loading" color="accent" type="submit">
-          <mat-icon>login</mat-icon>
-          <span *ngSwitchCase="false">&nbsp;&nbsp;&nbsp; Login</span>
-          <span *ngSwitchCase="true">&nbsp;&nbsp;&nbsp; Processing Request </span>
-        </button>
-        &nbsp;&nbsp;
-        <!-- register button -->
-        <a routerLink="/register">
-        <button mat-raised-button color="primary" >
+<mat-card [ngSwitch]="loading">
+  <mat-card-content>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <h2>Log In</h2>
+      <mat-error *ngIf="warning"> {{ warning }} </mat-error><br />
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="User Name"
+          name="username"
+          [(ngModel)]="user.userName"
+          required
+          autofocus
+        />
+        <mat-error>Please provide a valid user name</mat-error> </mat-form-field
+      ><br />
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          type="password"
+          placeholder="Password"
+          name="password"
+          password="password"
+          [(ngModel)]="user.password"
+          required
+        />
+        <mat-error>Please provide a valid password</mat-error> </mat-form-field
+      ><br />
+      <!-- login button -->
+      <button mat-raised-button [disabled]="loading" color="accent" type="submit">
+        <mat-icon *ngSwitchCase="false">login</mat-icon>
+        <span *ngSwitchCase="false">&nbsp;&nbsp;&nbsp; Login</span>
+        <div *ngSwitchCase="true">
+          <mat-spinner diameter="20"></mat-spinner
+          ><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Processing Request </span>
+        </div>
+      </button>
+      &nbsp;&nbsp;
+      <hr />
+      <!-- register button -->
+      <br />
+      <div>Don't have an account yet?</div>
+      <a routerLink="/register">
+        <button mat-raised-button color="primary">
           <mat-icon>account_box</mat-icon>
-          
-          <span >&nbsp;&nbsp;&nbsp;Register</span>
+          <span>&nbsp;&nbsp;&nbsp;Register</span>
         </button>
-        </a>
-      </form>
-    </mat-card-content>
-  </mat-card>
+      </a>
+    </form>
+  </mat-card-content>
+  <mat-progress-bar *ngSwitchCase="true" mode="indeterminate"></mat-progress-bar>
+</mat-card>

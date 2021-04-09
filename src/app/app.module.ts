@@ -29,7 +29,7 @@ import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { FavouritesComponent } from './favourites/favourites.component';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 // jwt
 
 import { RegisterComponent } from './register/register.component';
@@ -68,7 +68,8 @@ import { InterceptTokenService } from './intercept-token.service';
     ClipboardModule,
     HttpClientModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

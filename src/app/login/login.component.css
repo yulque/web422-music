@@ -7,3 +7,11 @@ mat-card {
 mat-form-field {
   display: block;
 }
+mat-spinner {
+  display: inline;
+}
+
+button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

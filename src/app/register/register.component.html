@@ -11,6 +11,7 @@
           [(ngModel)]="registerUser.userName"
           required
           autofocus
+          [disabled]="success"
         />
         <mat-error>Please provide a valid user name</mat-error> </mat-form-field
       ><br />
@@ -22,6 +23,7 @@
           name="password"
           [(ngModel)]="registerUser.password"
           required
+          [disabled]="success"
         />
         <mat-error>Please provide a valid password</mat-error> </mat-form-field
       ><br />
@@ -33,14 +35,15 @@
           name="password2"
           [(ngModel)]="registerUser.password2"
           required
+          [disabled]="success"
         />
         <mat-error>Please provide a valid password</mat-error> </mat-form-field
       ><br />
 
       <button
-        mat-raised-button
         [ngSwitch]="loading"
-        [disabled]="loading"
+        mat-raised-button
+        [disabled]="loading || success"
         color="primary"
         type="submit"
       >
@@ -49,10 +52,13 @@
         <span *ngSwitchCase="false">&nbsp;&nbsp;&nbsp;Register</span>
       </button>
     </form>
-    <!-- when success -->
   </mat-card-content>
+  <div [ngSwitch]="loading">
+    <mat-progress-bar *ngSwitchCase="true" mode="indeterminate"></mat-progress-bar>
+  </div>
+  <!-- when success -->
   <div class="success" *ngIf="success">
-    Registration Successful. Proceed to<br /><br />
+    <mat-icon class="done">done</mat-icon>&nbsp;&nbsp;Registration Successful. Please proceed to<br /><br />
     <a routerLink="/login" mat-raised-button color="accent">
       <mat-icon>login</mat-icon>&nbsp;&nbsp;&nbsp;Login
     </a>

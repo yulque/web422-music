@@ -1,3 +1,9 @@
 .searchIcon {
-    cursor: pointer;
+  cursor: pointer;
+}
+.navbar-brand {
+  margin: auto;
+}
+#title {
+  font-family: 'Goldman', cursive !important;
 }
