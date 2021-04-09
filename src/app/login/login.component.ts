@@ -24,7 +24,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(f: NgForm): void {
-    if(!(this.user.userName && this.user.password)) {
+    if(!this.user.userName){
+      this.warning = "Please enter a user name";
+      return;
+    }
+    if(!this.user.password) {
+      this.warning = "Please enter the password";
       return;
     }
     this.loading = true;

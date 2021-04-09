@@ -26,14 +26,15 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(f: NgForm): void {
-    console.log({'registerUser': this.registerUser, 'warning': this.warning});
-    if(this.registerUser.userName === "" || this.registerUser.password !== this.registerUser.password2){
-      console.log('condition fail at register');
+    if(!this.registerUser.userName) {
+      this.warning = "Please enter a user name";
+      return;
+    } 
+    if(this.registerUser.password !== this.registerUser.password2){
+      this.warning = "Please enter 2 same passwords to confirm";
       return;
     }
     // valid info
-    console.log('valid info');
-
     this.loading = true;
     this.auth.register(this.registerUser)
     .subscribe( successful => {
