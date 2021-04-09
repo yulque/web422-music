@@ -4,7 +4,9 @@
 *  assignment has been copied manually or electronically from any other source (including web sites) or 
 *  distributed to other students.
 * 
-*  Name: Yu Ri Yoon_ Student ID: 135023190_ Date: April 9 2021_
+*  Name: Yu Ri Yoon, Student ID: 135023190, Date: April 9 2021
+*
+*  Online Link: https://web-spotify-yuri.netlify.app/
 *
 ********************************************************************************/ 
 
