@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       }, err => {
         //this.warning = err.error.message;
         this.loading = false;
-        this.router.navigate(['newReleases']);
+        
       }
 
     )
