@@ -39,8 +39,9 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('access_token',success.token);
         this.router.navigate(['newReleases']);
       }, err => {
-        this.warning = err.error.message;
+        //this.warning = err.error.message;
         this.loading = false;
+        this.router.navigate(['newReleases']);
       }
 
     )
